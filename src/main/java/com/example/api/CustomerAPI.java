@@ -10,16 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/customers")
 public class CustomerAPI {
-	ArrayList<Customer> list = new ArrayList<Customer>();
-
-	public CustomerAPI() {
-		Customer c1 = new Customer(1, "Steve", "pass", "steve@abc.com");
-		Customer c2 = new Customer(1, "Bob", "pass", "bob@abc.com");
-		Customer c3 = new Customer(1, "Cindy", "pass", "cindy@abc.com");
-		list.add(c1);
-		list.add(c2);
-		list.add(c3);
-	}
 
 	@GetMapping
 	public String getAll() {
@@ -45,4 +35,15 @@ public class CustomerAPI {
 		return response;
 	}
 
+	ArrayList<Customer> list = new ArrayList<Customer>();
+
+	public CustomerAPI() {
+		Customer c1 = new Customer(1, "Steve", "pass", "steve@abc.com");
+		Customer c2 = new Customer(1, "Bob", "pass", "bob@abc.com");
+		Customer c3 = new Customer(1, "Cindy", "pass", "cindy@abc.com");
+		list.add(c1);
+		list.add(c2);
+		list.add(c3);
+	}
+	
 }
