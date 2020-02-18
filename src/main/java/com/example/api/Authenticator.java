@@ -1,11 +1,15 @@
 package com.example.api;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class Authenticator {
 	
 	public static boolean checkUser(String username) {
-		if( (username != null && username.length() > 0) &&
-			( username.equalsIgnoreCase("john") 
-		    || username.equalsIgnoreCase("susan"))) {
+		
+		if((username != null && username.length() > 0) &&
+				(username.equalsIgnoreCase("john")
+				|| username.equalsIgnoreCase("susan"))) {
 			return true;
 		}else {
 			return false;

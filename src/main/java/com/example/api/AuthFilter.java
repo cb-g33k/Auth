@@ -15,8 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class AuthFilter implements Filter {
 
-	JWTUtil jwtUtil = new JWTMockUtil();
-	// JWTUtil jwtUtil = new JWTHelper();
+	JWTUtil jwtUtil = new JWTHelper();
 	
 	private String api_scope = "com.api.customer.r";
 
@@ -27,7 +26,7 @@ public class AuthFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		String uri = req.getRequestURI();
-		if (uri.startsWith("/token")) {
+		if (uri.startsWith("/account")) {
 			// continue on to get-token endpoint
 			chain.doFilter(request, response);
 			return;
