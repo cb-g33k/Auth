@@ -23,7 +23,7 @@ public class TokenAPI {
 	@PostMapping(consumes = "application/json")
 	public ResponseEntity<?> getToken(@RequestBody TokenRequestData tokenRequestData) throws IOException {
 		String pwd = "";
-		String request = "http://localhost:8080/api/customers/byname/" + tokenRequestData.username;
+		String request = "http://localhost:8080/api/customers/byname/" + tokenRequestData.name;
 		
 		URL url = new URL(request);
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -55,7 +55,7 @@ public class TokenAPI {
 			sendToken(token);
 			return response;
 		}
-		return (ResponseEntity<?>) ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+		return null;
 	}
 	
 	public void sendToken(String token) throws IOException {
@@ -71,13 +71,5 @@ public class TokenAPI {
 		int x = conn.getResponseCode();
 
 		BufferedReader resp = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-//
-//		String inputLine;
-//		StringBuffer bufferResponse = new StringBuffer();
-//
-//		while ((inputLine = resp.readLine()) != null) {
-//			bufferResponse.append(inputLine);
-//		}
-//		resp.close();
 	}
 }

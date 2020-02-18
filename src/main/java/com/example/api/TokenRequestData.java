@@ -1,23 +1,23 @@
 package com.example.api;
 
 public class TokenRequestData {
-	String username;
+	String name;
 	String password;
 	String scopes;
 	
-	public TokenRequestData(String username, String password, String scopes) {
+	public TokenRequestData(String name, String password, String scopes) {
 		super();
-		this.username = username;
+		this.name = name;
 		this.password = password;
 		this.scopes = scopes;
 	}
 
 	public String getUsername() {
-		return username;
+		return name;
 	}
 	
 	public void setUsername(String username) {
-		this.username = username;
+		this.name = username;
 	}
 	
 	public String getPassword() {
