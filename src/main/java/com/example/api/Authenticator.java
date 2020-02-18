@@ -2,7 +2,9 @@ package com.example.api;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
+/*
+ * @deprecated: provided hard coded user login checks
+ */
 public class Authenticator {
 	
 	public static boolean checkUser(String username) {

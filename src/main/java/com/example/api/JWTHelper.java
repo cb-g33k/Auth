@@ -11,6 +11,9 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
+/*
+ * provides token methods
+ */
 public class JWTHelper implements JWTUtil {
 	
 		@Override

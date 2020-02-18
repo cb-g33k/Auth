@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Component;
-
+/*
+ * Filter to check for token and the proxy calls between user and data
+ */
 @Component
 public class AuthFilter implements Filter {
 

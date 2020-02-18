@@ -1,6 +1,8 @@
 package com.example.api;
 
-
+/*
+ * customer object
+ */
 public class customerObject {
 	private String name;
 	public String getName() {
