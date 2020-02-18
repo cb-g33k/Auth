@@ -71,13 +71,13 @@ public class TokenAPI {
 		int x = conn.getResponseCode();
 
 		BufferedReader resp = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-
-		String inputLine;
-		StringBuffer bufferResponse = new StringBuffer();
-
-		while ((inputLine = resp.readLine()) != null) {
-			bufferResponse.append(inputLine);
-		}
-		resp.close();
+//
+//		String inputLine;
+//		StringBuffer bufferResponse = new StringBuffer();
+//
+//		while ((inputLine = resp.readLine()) != null) {
+//			bufferResponse.append(inputLine);
+//		}
+//		resp.close();
 	}
 }
