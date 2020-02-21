@@ -5,6 +5,8 @@ public class TokenRequestData {
 	String password;
 	String scopes;
 	
+	public TokenRequestData() {}
+	
 	public TokenRequestData(String name, String password, String scopes) {
 		super();
 		this.name = name;
@@ -12,12 +14,12 @@ public class TokenRequestData {
 		this.scopes = scopes;
 	}
 
-	public String getUsername() {
+	public String getName() {
 		return name;
 	}
 	
-	public void setUsername(String username) {
-		this.name = username;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	public String getPassword() {

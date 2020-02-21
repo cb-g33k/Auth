@@ -4,10 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,9 +19,13 @@ public class TokenAPI {
 
 	@SuppressWarnings("unused")
 	@PostMapping(consumes = "application/json")
-	public ResponseEntity<?> getToken(@RequestBody TokenRequestData tokenRequestData) throws IOException {
+	public ResponseEntity<String> getToken(@RequestBody TokenRequestData tokenRequestData) throws IOException {
 		String pwd = "";
+		String tokenString = "";
 		String request = "http://localhost:8080/api/customers/byname/" + tokenRequestData.name;
+		
+	    	
+		
 		
 		URL url = new URL(request);
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -50,16 +52,19 @@ public class TokenAPI {
 					stringResponse.indexOf("\",\"id"));
 		}
 		if (pwd.equals(tokenRequestData.password)) {
-			String token = jwtUtil.createToken(tokenRequestData.scopes);
-			ResponseEntity<?> response = ResponseEntity.ok(token);
-			sendToken(token);
-			return response;
+	    	String token_string = jwtUtil.createToken(tokenRequestData.name);
+			//Token token = new Token(jwtUtil.createToken(tokenRequestData.scopes));
+			ResponseEntity<?> response = ResponseEntity.ok(token_string);
+			sendToken(token_string);
+			//return ResponseEntity.ok(response);
+			return ResponseEntity.ok("\""+token_string+"\"");
+			
 		}
 		return null;
 	}
 	
 	public void sendToken(String token) throws IOException {
-		String request = "http://localhost:8080/api/proxy/token/" + token;
+		String request = "http://localhost:8080/api/token/" + token;
 		
 		URL url = new URL(request);
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -72,4 +77,5 @@ public class TokenAPI {
 
 		BufferedReader resp = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 	}
+	
 }

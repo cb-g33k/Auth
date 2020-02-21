@@ -1,11 +1,11 @@
 package com.example.api;
 
-public class customerObject {
+public class Customer {
 	private String name;
 	private String email;
 	private String password;
-	public customerObject() {}
-	public customerObject(String name, String email, String password) {
+	public String username;
+	public Customer(String name, String email, String password) {
 		this.name = name;
 		this.email = email;
 		this.password = password;
